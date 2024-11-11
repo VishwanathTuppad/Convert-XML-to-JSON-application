@@ -32,7 +32,7 @@ public class ConversionServiceImpl implements ConversionService {
         // Convert XML data to JSON and add the custom field
         try {
             ObjectNode jsonNode = objectMapper.convertValue(responseDTO, ObjectNode.class);
-
+            logger.info("JSON without custom field: {}",jsonNode);
             logger.info("Converting XML to JSON with custom fields.");
             jsonNode.with("MatchSummary").put("TotalMatchScore", totalMatchScore);
 

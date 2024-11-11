@@ -23,7 +23,6 @@ public class XmlToJsonController {
         logger.info("Received XML for conversion: {}", responseDTO);
         try {
             JsonNode jsonResult = conversionService.convertXmlToJson(responseDTO);
-            logger.info("Successful conversion:");
             return new ResponseEntity<>(jsonResult, HttpStatus.OK);
         } catch (XmlProcessingException e) {
             logger.error("XML Processing error: {}", e.getMessage());
