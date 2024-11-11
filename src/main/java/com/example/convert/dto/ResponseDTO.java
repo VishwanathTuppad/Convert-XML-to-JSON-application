@@ -2,7 +2,6 @@ package com.example.convert.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import lombok.Data;
 
 import java.util.List;
@@ -64,9 +63,11 @@ public class ResponseDTO {
     @Data
     public static class Values {
         @JacksonXmlElementWrapper(useWrapping = false)
-        @JacksonXmlProperty(localName = "Value")
+        @JsonProperty("Value")
         private List<String> value;
     }
+    //useWrapping = false means that each element in the list will appear as
+    // an individual XML element, rather than being wrapped in a parent element.
 
     @Data
     public static class MatchDetails {
